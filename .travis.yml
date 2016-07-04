@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.3.1
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: OZPtfYvAn+InkFmoBW6K46wg573mUIcuuHTpjFjnNXo2/D3alIPvQclWnxLUhgulP0KRRbiCjDYOhXJsxAZWG0yufCKr6yzieO8+jRH0Vh2BW1vGxyyfkxZWb8Jv3RpzCm9Zxs08mKKxGt2OwjkK2zOopVXmm6sr49k/ND0qJ9KmNsMVKZo9HbGSUu1l+2nkSuU+Sw04zLgIXo5NCBofvlNhRRcTzxltbaJCcSOIE7jgfeSbmqSmU1Hf19V39qWpfPwo6mVSHQzDY2ogTrxsXKHS8RUaLDxlRSXtig0FiNI6Z/aJBJBRfbO0o11YsthQrsjGoTXBWdBg7X/xx7AAV3i0zY+BThFNhEuqbZSoJBcIuyvY6cQ3QZJKbM/F9bSclgbF65iaO0RhOcrIgTqUwMfJgYjNRFsClhCWnPoGaBFbZXvQCPs7iF7Z/69gnLSMp9bd5pkcxh2+DA8dJ8rl0oVseazpn73dh2jg3KTtR5Cal/tnXCJ5bVWKmQEVjgRDk09ifyAJSSi0vG7jGajJPQi58huqy0+jcZYUvBZj7VJRYRcOGUr3A0jzedpJVj3x8GCYTR4hJB04MvOoehQBDcyBcKxdimtE3IlnDGJASGEU1nhYbuMLaiY75NpPIgUudWDHr7gyXwjXPZ3WnTsOb0yGxDy6+WbJuQ4BAsOtJtU=
+  app: odi-members
+  on:
+    repo: theodi/odi_members
