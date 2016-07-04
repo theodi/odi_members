@@ -1,0 +1,22 @@
+production:
+  clients:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] || ENV['MONGODB_URI'] %>
+      consistency: :strong
+      max_retries: 100
+      retry_interval: 5
+      timeout: 15
+      safe: true
+      refresh_interval: 10
+development:
+  clients:
+    default:
+      database: members_dev
+      hosts:
+        - localhost
+test:
+  clients:
+    default:
+      database: members_test
+      hosts:
+        - localhost
