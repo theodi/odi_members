@@ -53,6 +53,8 @@ module OdiMembers
     end
 
     post '/people/:name' do
+      protected!
+      
       body = JSON.parse request.body.read
       @person = Person.new({
         'name' => params[:name].parameterize,
