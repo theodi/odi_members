@@ -36,14 +36,8 @@ module OdiMembers
     get '/members/?' do
       respond_to do |wants|
         wants.json do
-          {
-            people: Person.all.distinct(:name).sort.map do |name|
-            {
-              name: name,
-              url: "#{request.base_url}/people/#{name}.json"
-            }
-          end
-        }.to_json
+          Organisation.all.to_json
+        end
       end
     end
 

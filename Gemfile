@@ -8,6 +8,7 @@ gem 'puma'
 gem 'compass'
 gem 'bootstrap-sass'
 gem 'mongoid'
+gem 'dotenv'
 
 group :test do
   gem 'rspec'

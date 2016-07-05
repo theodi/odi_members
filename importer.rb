@@ -1,5 +1,7 @@
 require 'json'
-require_relative 'lib/models/organisation'
+require_relative 'lib/odi_members'
+require 'dotenv'
+Dotenv.load
 
 j = JSON.parse File.read 'members.json'
 
