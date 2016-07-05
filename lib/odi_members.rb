@@ -46,7 +46,7 @@ module OdiMembers
     get '/members/:id' do
       respond_to do |wants|
         wants.json do
-          Member.where(:membershipId => params[:id]).first.to_json
+          Member.where(membershipId: params[:id]).first.to_json
         end
       end
     end
@@ -57,8 +57,8 @@ module OdiMembers
       body = JSON.parse request.body.read
       @member = Member.new (
         {
-          id: params[:id],
-          name: body[:name]
+          membershipId: params[:id],
+          name: body['name']
         }
       )
 
