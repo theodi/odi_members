@@ -20,4 +20,5 @@ group :test do
   gem 'jasmine'
   gem 'pry'
   gem 'actionpack'
+  gem 'database_cleaner'
 end
