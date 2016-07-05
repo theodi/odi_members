@@ -2,8 +2,10 @@ require 'sinatra/base'
 require 'tilt/erubis'
 require 'json'
 require 'mongoid'
+require 'dotenv'
+Dotenv.load
 
-require_relative 'models/organisation'
+require_relative 'models/member'
 require_relative 'odi_members/racks'
 require_relative 'odi_members/helpers'
 
@@ -36,8 +38,36 @@ module OdiMembers
     get '/members/?' do
       respond_to do |wants|
         wants.json do
-          Organisation.all.to_json
+          Member.all.to_json
         end
+      end
+    end
+
+    get '/members/:id' do
+      respond_to do |wants|
+        wants.json do
+          Member.where(:membershipId => params[:id]).first.to_json
+        end
+      end
+    end
+
+    post '/members/:id' do
+      protected!
+
+      body = JSON.parse request.body.read
+      @member = Member.new (
+        {
+          id: params[:id],
+          name: body[:name]
+        }
+      )
+
+      if @member.upsert
+        return 201, {
+          magic_link: 'i_just_made_this_up'
+        }.to_json
+      else
+        return 500
       end
     end
 
