@@ -32,3 +32,10 @@ RSpec.configure do |config|
     OdiMembers::App
   end
 end
+
+def http_auth
+  ActionController::HttpAuthentication::Basic.encode_credentials(
+    ENV['MEMBERS_API_USERNAME'],
+    ENV['MEMBERS_API_PASSWORD']
+  )
+end

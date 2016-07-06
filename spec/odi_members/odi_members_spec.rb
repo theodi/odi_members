@@ -20,16 +20,15 @@ module OdiMembers
 
     context 'create new member' do
       it 'posts to the endpoint' do
-        user = ENV['MEMBERS_API_USERNAME']
-        pw = ENV['MEMBERS_API_PASSWORD']
 
-        request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(user,pw)
+        headers = JSON_HEADERS
+        headers['HTTP_AUTHORIZATION'] = http_auth
 
         content = {
           name: 'Bert'
         }.to_json
 
-        post '/members/123', content, JSON_HEADERS
+        post '/members/123', content, headers
         expect(Member.count).to eq 1
       end
     end
